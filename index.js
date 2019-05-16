@@ -17,6 +17,11 @@ massive(CONNECTION_STRING)
   //   console.log(err)
   // }) 
   // })
+  dbInstance.get_planes()
+  .then((planes) => {
+    console.log(planes)
+  })
+  .catch((err) => console.log(err))
   app.listen(SERVER_PORT, () => {
     console.log(`Server listening on port ${SERVER_PORT}`);
   });
