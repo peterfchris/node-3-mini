@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require('massive')
 const app = express();
 const {SERVER_PORT, CONNECTION_STRING} = process.env;
+const controller = require('controller.js')
 
 app.use(express.json());
 
@@ -17,13 +18,15 @@ massive(CONNECTION_STRING)
   //   console.log(err)
   // }) 
   // })
-  dbInstance.get_planes()
-  .then((planes) => {
-    console.log(planes)
-  })
-  .catch((err) => console.log(err))
-  app.listen(SERVER_PORT, () => {
-    console.log(`Server listening on port ${SERVER_PORT}`);
-  });
+  // dbInstance.get_planes()
+  // .then((planes) => {
+  //   console.log(planes)
+  // })
+  // .catch((err) => console.log(err))
+  // app.listen(SERVER_PORT, () => {
+  //   console.log(`Server listening on port ${SERVER_PORT}`);
+  // });
 })
+
+app.get('/api/planes', controller.getPlanes)
 
